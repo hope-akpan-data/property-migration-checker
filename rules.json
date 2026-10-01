@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "tables": {
+    "properties": {
+      "key": "property_id",
+      "required": ["property_id", "address", "postcode"],
+      "columns": ["property_id", "address", "postcode"]
+    },
+    "tenancies": {
+      "key": "tenancy_id",
+      "required": ["tenancy_id", "property_id", "start_date", "monthly_rent"],
+      "columns": ["tenancy_id", "property_id", "start_date", "end_date", "monthly_rent"],
+      "dates": ["start_date", "end_date"],
+      "date_order": ["start_date", "end_date"],
+      "nonnegative_numbers": ["monthly_rent"],
+      "references": {"property_id": "properties"}
+    },
+    "maintenance": {
+      "key": "request_id",
+      "required": ["request_id", "property_id", "status", "opened_date"],
+      "columns": ["request_id", "property_id", "status", "opened_date"],
+      "dates": ["opened_date"],
+      "enums": {"status": ["open", "in_progress", "closed"]},
+      "references": {"property_id": "properties"}
+    }
+  }
+}

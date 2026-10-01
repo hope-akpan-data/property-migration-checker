@@ -1,0 +1,14 @@
+﻿severity,side,table,row,record_id,field,rule,value,impact,action
+BLOCKER,source,maintenance,3,M-002,property_id,ambiguous_reference,P-002,The linked property has multiple candidate records.,Resolve the duplicate property ID before linking this record.
+BLOCKER,source,maintenance,3,M-002,status,invalid_status,In-Progress,The status is outside the agreed target vocabulary.,"Agree a mapping to: open, in_progress, closed."
+BLOCKER,source,maintenance,4,M-003,property_id,required,,A required value is missing.,Ask the source owner to supply the value.
+BLOCKER,source,maintenance,5,M-004,opened_date,invalid_date,2026-02-30,The date cannot be loaded under the agreed format.,Confirm the date; use YYYY-MM-DD.
+BLOCKER,source,maintenance,5,M-004,property_id,missing_reference,P-004,The record points to a property absent from the property register.,Confirm the ID or supply the missing property record.
+BLOCKER,source,properties,3,P-002,property_id,duplicate_key,P-002,The identifier does not identify one record.,Ask the data owner which record is authoritative; do not drop rows automatically.
+BLOCKER,source,properties,4,P-003,postcode,required,,A required value is missing.,Ask the source owner to supply the value.
+BLOCKER,source,properties,5,P-002,property_id,duplicate_key,P-002,The identifier does not identify one record.,Ask the data owner which record is authoritative; do not drop rows automatically.
+BLOCKER,source,tenancies,3,T-002,property_id,missing_reference,P-999,The record points to a property absent from the property register.,Confirm the ID or supply the missing property record.
+BLOCKER,source,tenancies,4,T-003,end_date,date_order,2025-12-31,The tenancy ends before it starts.,Confirm both dates with the source owner.
+BLOCKER,source,tenancies,5,T-004,start_date,invalid_date,2026-02-30,The date cannot be loaded under the agreed format.,Confirm the date; use YYYY-MM-DD.
+BLOCKER,source,tenancies,5,T-004,monthly_rent,invalid_number,'-900,"The amount is not a finite, non-negative number.",Confirm the amount; use a number without currency symbols or separators.
+REVIEW,source,properties,5,P-002,address,whitespace, 4 Example Court ,Exact matching may fail in a destination system.,Review and trim whitespace in an approved working copy.

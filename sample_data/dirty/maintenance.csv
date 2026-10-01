@@ -1,0 +1,5 @@
+request_id,property_id,status,opened_date
+M-001,P-001,open,2026-09-01
+M-002,P-002,In-Progress,2026-09-02
+M-003,,closed,2026-09-03
+M-004,P-004,open,2026-02-30

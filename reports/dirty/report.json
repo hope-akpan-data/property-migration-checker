@@ -1,0 +1,225 @@
+{
+  "generated_at": "2026-10-01T13:35:06.234149+00:00",
+  "rule_version": "1.0",
+  "verdict": "BLOCKERS FOUND",
+  "blockers": 12,
+  "review_findings": 1,
+  "issues": [
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "maintenance",
+      "row": 3,
+      "record_id": "M-002",
+      "field": "property_id",
+      "rule": "ambiguous_reference",
+      "value": "P-002",
+      "impact": "The linked property has multiple candidate records.",
+      "action": "Resolve the duplicate property ID before linking this record."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "maintenance",
+      "row": 3,
+      "record_id": "M-002",
+      "field": "status",
+      "rule": "invalid_status",
+      "value": "In-Progress",
+      "impact": "The status is outside the agreed target vocabulary.",
+      "action": "Agree a mapping to: open, in_progress, closed."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "maintenance",
+      "row": 4,
+      "record_id": "M-003",
+      "field": "property_id",
+      "rule": "required",
+      "value": "",
+      "impact": "A required value is missing.",
+      "action": "Ask the source owner to supply the value."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "maintenance",
+      "row": 5,
+      "record_id": "M-004",
+      "field": "opened_date",
+      "rule": "invalid_date",
+      "value": "2026-02-30",
+      "impact": "The date cannot be loaded under the agreed format.",
+      "action": "Confirm the date; use YYYY-MM-DD."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "maintenance",
+      "row": 5,
+      "record_id": "M-004",
+      "field": "property_id",
+      "rule": "missing_reference",
+      "value": "P-004",
+      "impact": "The record points to a property absent from the property register.",
+      "action": "Confirm the ID or supply the missing property record."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "properties",
+      "row": 3,
+      "record_id": "P-002",
+      "field": "property_id",
+      "rule": "duplicate_key",
+      "value": "P-002",
+      "impact": "The identifier does not identify one record.",
+      "action": "Ask the data owner which record is authoritative; do not drop rows automatically."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "properties",
+      "row": 4,
+      "record_id": "P-003",
+      "field": "postcode",
+      "rule": "required",
+      "value": "",
+      "impact": "A required value is missing.",
+      "action": "Ask the source owner to supply the value."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "properties",
+      "row": 5,
+      "record_id": "P-002",
+      "field": "property_id",
+      "rule": "duplicate_key",
+      "value": "P-002",
+      "impact": "The identifier does not identify one record.",
+      "action": "Ask the data owner which record is authoritative; do not drop rows automatically."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "tenancies",
+      "row": 3,
+      "record_id": "T-002",
+      "field": "property_id",
+      "rule": "missing_reference",
+      "value": "P-999",
+      "impact": "The record points to a property absent from the property register.",
+      "action": "Confirm the ID or supply the missing property record."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "tenancies",
+      "row": 4,
+      "record_id": "T-003",
+      "field": "end_date",
+      "rule": "date_order",
+      "value": "2025-12-31",
+      "impact": "The tenancy ends before it starts.",
+      "action": "Confirm both dates with the source owner."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "tenancies",
+      "row": 5,
+      "record_id": "T-004",
+      "field": "start_date",
+      "rule": "invalid_date",
+      "value": "2026-02-30",
+      "impact": "The date cannot be loaded under the agreed format.",
+      "action": "Confirm the date; use YYYY-MM-DD."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "source",
+      "table": "tenancies",
+      "row": 5,
+      "record_id": "T-004",
+      "field": "monthly_rent",
+      "rule": "invalid_number",
+      "value": "-900",
+      "impact": "The amount is not a finite, non-negative number.",
+      "action": "Confirm the amount; use a number without currency symbols or separators."
+    },
+    {
+      "severity": "REVIEW",
+      "side": "source",
+      "table": "properties",
+      "row": 5,
+      "record_id": "P-002",
+      "field": "address",
+      "rule": "whitespace",
+      "value": " 4 Example Court ",
+      "impact": "Exact matching may fail in a destination system.",
+      "action": "Review and trim whitespace in an approved working copy."
+    }
+  ],
+  "rows": {
+    "source": {
+      "properties": 5,
+      "tenancies": 4,
+      "maintenance": 4
+    }
+  },
+  "checks": [
+    {
+      "side": "source",
+      "table": "properties",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 5
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    }
+  ],
+  "reconciliation": [],
+  "input_manifest": [
+    {
+      "side": "source",
+      "table": "properties",
+      "sha256": "5213503757ef27354b5e4b08cd285318e0980b98430ecaa49bfff861b8b41297"
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "sha256": "3c35217777819710115e09b7c28a331dcf6a6979be7f0c38834c4f78f24861f1"
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "sha256": "5063197b7e6fc821540a88c61ffb43a172134255e2761be7f299c7b1bbd0ee47"
+    }
+  ]
+}

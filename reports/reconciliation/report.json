@@ -1,0 +1,198 @@
+{
+  "generated_at": "2026-10-01T13:35:06.237110+00:00",
+  "rule_version": "1.0",
+  "verdict": "BLOCKERS FOUND",
+  "blockers": 4,
+  "review_findings": 0,
+  "issues": [
+    {
+      "severity": "BLOCKER",
+      "side": "reconciliation",
+      "table": "properties",
+      "row": 6,
+      "record_id": "P-005",
+      "field": "property_id",
+      "rule": "missing_target_record",
+      "value": "P-005",
+      "impact": "A source record is absent from the target export.",
+      "action": "Investigate the import rejection or omission."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "reconciliation",
+      "table": "properties",
+      "row": 6,
+      "record_id": "P-099",
+      "field": "property_id",
+      "rule": "unexpected_target_record",
+      "value": "P-099",
+      "impact": "A target record was not in this source batch.",
+      "action": "Confirm the target export scope or investigate the extra record."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "reconciliation",
+      "table": "tenancies",
+      "row": 2,
+      "record_id": "T-001",
+      "field": "monthly_rent",
+      "rule": "changed_value",
+      "value": "1200 -> 1250",
+      "impact": "The target value differs from the source.",
+      "action": "Confirm an approved transformation or correct the mismatch."
+    },
+    {
+      "severity": "BLOCKER",
+      "side": "target",
+      "table": "tenancies",
+      "row": 5,
+      "record_id": "T-004",
+      "field": "property_id",
+      "rule": "missing_reference",
+      "value": "P-005",
+      "impact": "The record points to a property absent from the property register.",
+      "action": "Confirm the ID or supply the missing property record."
+    }
+  ],
+  "rows": {
+    "source": {
+      "properties": 5,
+      "tenancies": 4,
+      "maintenance": 4
+    },
+    "target": {
+      "properties": 5,
+      "tenancies": 4,
+      "maintenance": 4
+    }
+  },
+  "checks": [
+    {
+      "side": "source",
+      "table": "properties",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 5
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    },
+    {
+      "side": "target",
+      "table": "properties",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 5
+    },
+    {
+      "side": "target",
+      "table": "tenancies",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "target",
+      "table": "maintenance",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "target",
+      "table": "tenancies",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    },
+    {
+      "side": "target",
+      "table": "maintenance",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    }
+  ],
+  "reconciliation": [
+    {
+      "table": "properties",
+      "source_rows": 5,
+      "target_rows": 5,
+      "status": "MISMATCH",
+      "missing_records": 1,
+      "unexpected_records": 1,
+      "changed_fields": 0
+    },
+    {
+      "table": "tenancies",
+      "source_rows": 4,
+      "target_rows": 4,
+      "status": "MISMATCH",
+      "missing_records": 0,
+      "unexpected_records": 0,
+      "changed_fields": 1
+    },
+    {
+      "table": "maintenance",
+      "source_rows": 4,
+      "target_rows": 4,
+      "status": "EXACT MATCH",
+      "missing_records": 0,
+      "unexpected_records": 0,
+      "changed_fields": 0
+    }
+  ],
+  "input_manifest": [
+    {
+      "side": "source",
+      "table": "properties",
+      "sha256": "af9baf7722be3ea9c41d01b96fe23a621693390c0a9d545ce8c66e0aa551b110"
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "sha256": "169e9cc16b12013813724d6c6be42aa3a73bd8def524b0cb769ebcdde3281c25"
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "sha256": "537f1a002a1a21f0738cf5cec381c3c7946e75d70372a7235dccebf0e1cd25c9"
+    },
+    {
+      "side": "target",
+      "table": "properties",
+      "sha256": "9fe30d95bb58467de525af3ebb1d34ca484b46682cee04feb5eb05205b3016f4"
+    },
+    {
+      "side": "target",
+      "table": "tenancies",
+      "sha256": "1ac6e65c4596cc547fdc52e48f34151ce31d36abfd60bbc4a3e08b824928ec99"
+    },
+    {
+      "side": "target",
+      "table": "maintenance",
+      "sha256": "537f1a002a1a21f0738cf5cec381c3c7946e75d70372a7235dccebf0e1cd25c9"
+    }
+  ]
+}

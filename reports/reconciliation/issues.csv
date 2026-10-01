@@ -1,0 +1,5 @@
+﻿severity,side,table,row,record_id,field,rule,value,impact,action
+BLOCKER,reconciliation,properties,6,P-005,property_id,missing_target_record,P-005,A source record is absent from the target export.,Investigate the import rejection or omission.
+BLOCKER,reconciliation,properties,6,P-099,property_id,unexpected_target_record,P-099,A target record was not in this source batch.,Confirm the target export scope or investigate the extra record.
+BLOCKER,reconciliation,tenancies,2,T-001,monthly_rent,changed_value,1200 -> 1250,The target value differs from the source.,Confirm an approved transformation or correct the mismatch.
+BLOCKER,target,tenancies,5,T-004,property_id,missing_reference,P-005,The record points to a property absent from the property register.,Confirm the ID or supply the missing property record.

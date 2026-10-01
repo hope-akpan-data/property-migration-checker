@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-10-01T13:35:06.236080+00:00",
+  "rule_version": "1.0",
+  "verdict": "NO ISSUES FOUND IN DEFINED CHECKS",
+  "blockers": 0,
+  "review_findings": 0,
+  "issues": [],
+  "rows": {
+    "source": {
+      "properties": 5,
+      "tenancies": 4,
+      "maintenance": 4
+    }
+  },
+  "checks": [
+    {
+      "side": "source",
+      "table": "properties",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 5
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "check": "table_validation",
+      "status": "EXECUTED",
+      "rows": 4
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "check": "property_id_reference",
+      "status": "EXECUTED"
+    }
+  ],
+  "reconciliation": [],
+  "input_manifest": [
+    {
+      "side": "source",
+      "table": "properties",
+      "sha256": "af9baf7722be3ea9c41d01b96fe23a621693390c0a9d545ce8c66e0aa551b110"
+    },
+    {
+      "side": "source",
+      "table": "tenancies",
+      "sha256": "169e9cc16b12013813724d6c6be42aa3a73bd8def524b0cb769ebcdde3281c25"
+    },
+    {
+      "side": "source",
+      "table": "maintenance",
+      "sha256": "537f1a002a1a21f0738cf5cec381c3c7946e75d70372a7235dccebf0e1cd25c9"
+    }
+  ]
+}
